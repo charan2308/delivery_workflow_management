@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .menu {
+            flex: 0 0 200px;
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .menu h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-left: 1px solid #dee2e6;
+        }
+
+        .content h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #212529;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="/delivery">View Delivery Status</a></li>
+                <li><a href="/create-order">Create New Order</a></li>
+                  <li><a href="/order-history">View Order History</a></li>
+                <li><a href="/view-customers">View all customers</a></li>
+                <li><a href="/create-customer">Add new customer</a></li>
+<li><a href="/view-warehouses">View all warehouses</a></li>
+<li><a href="/create-warehouse">Add new warehouse</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Content area -->
+        <div class="content">
+            <h1>Current Deliveries</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Delivery ID</th>
+                        <th>Recipient Name</th>
+                        <th>Address</th>
+                        <th>Delivery Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="delivery : ${deliveries}">
+                        <td th:text="${delivery.deliveryId}"></td>
+                        <td th:text="${delivery.recipientName}"></td>
+                        <td th:text="${delivery.address}"></td>
+                        <td th:text="${delivery.deliveryDate}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Customer</title>
+    <style>
+        /* CSS for the container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #f7f7f7;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* CSS for the menu */
+        .menu {
+            flex: 0 0 200px;
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .menu h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        /* CSS for the content */
+        .content {
+            flex: 1;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* CSS for form groups */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* CSS for labels */
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* CSS for input fields */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* CSS for submit button */
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="/delivery">View Delivery Status</a></li>
+                <li><a href="/create-order">Create New Order</a></li>
+                  <li><a href="/order-history">View Order History</a></li>
+                <li><a href="/view-customers">View all customers</a></li>
+                <li><a href="/create-customer">Add new customer</a></li>
+        <li><a href="/view-warehouses">View all warehouses</a></li>
+        <li><a href="/create-warehouse">Add new warehouse</a></li>
+            </ul>
+        </div>
+
+        <!-- Content area -->
+        <div class="content">
+            <h1>Create Customer</h1>
+            <form th:action="@{/create-customer}" method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactInfo">Contact Information:</label>
+                    <input type="text" id="contactInfo" name="contactInfo" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

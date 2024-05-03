@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Warehouse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .menu {
+            flex: 0 0 200px;
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .menu h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-left: 1px solid #dee2e6;
+        }
+
+        .content h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Menu -->
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="/delivery">View Delivery Status</a></li>
+                <li><a href="/create-order">Create New Order</a></li>
+                  <li><a href="/order-history">View Order History</a></li>
+                <li><a href="/view-customers">View all customers</a></li>
+                <li><a href="/create-customer">Add new customer</a></li>
+        <li><a href="/view-warehouses">View all warehouses</a></li>
+        <li><a href="/create-warehouse">Add new warehouse</a></li>
+            </ul>
+        </div>
+
+        <!-- Content area -->
+        <div class="content">
+            <h1>Add New Warehouse</h1>
+            <form th:action="@{/create-warehouse}" method="post">
+                <div class="form-group">
+                    <label for="name">Warehouse Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Warehouse</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
